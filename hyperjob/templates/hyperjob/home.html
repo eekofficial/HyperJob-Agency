@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <form method="post"
+          {% if user.is_staff %}
+            action="vacancy/new"
+          {% else %}
+            action="resume/new"
+          {% endif %}>
+        {% csrf_token %}
+        <input type="text" maxlength="1024" required name="description">Add description</input>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
